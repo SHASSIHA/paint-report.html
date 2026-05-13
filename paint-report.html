@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Paint Report</title>
+
+  <style>
+    body{
+      font-family: Arial;
+      padding:20px;
+      background:#f5f5f5;
+    }
+
+    .box{
+      background:white;
+      padding:15px;
+      border-radius:10px;
+      max-width:600px;
+      margin:auto;
+      box-shadow:0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    input, select{
+      width:100%;
+      padding:10px;
+      margin:8px 0;
+    }
+
+    button{
+      width:100%;
+      padding:12px;
+      background:black;
+      color:white;
+      border:none;
+      border-radius:8px;
+      margin-top:10px;
+    }
+
+    .report{
+      display:none;
+      background:white;
+      padding:20px;
+      margin-top:20px;
+    }
+
+    h3{
+      border-bottom:1px solid #ddd;
+      padding-bottom:5px;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="box">
+
+<h2>🧪 تقرير فحص الصبغ</h2>
+
+<input id="vin" placeholder="رقم الشاصي">
+<input id="car" placeholder="اسم السيارة">
+
+<select id="hood">
+  <option>الكبوت - أصلي</option>
+  <option>الكبوت - مرشوش</option>
+  <option>الكبوت - معجون</option>
+</select>
+
+<select id="door">
+  <option>الباب - أصلي</option>
+  <option>الباب - مرشوش</option>
+  <option>الباب - معجون</option>
+</select>
+
+<select id="fender">
+  <option>الرفرف - أصلي</option>
+  <option>الرفرف - مرشوش</option>
+  <option>الرفرف - معجون</option>
+</select>
+
+<button onclick="generate()">🖨️ إنشاء التقرير</button>
+
+</div>
+
+<div class="report" id="report">
+
+<h2>📄 تقرير فحص السيارة</h2>
+
+<p id="r_vin"></p>
+<p id="r_car"></p>
+
+<h3>🧪 حالة الصبغ</h3>
+
+<p id="r_hood"></p>
+<p id="r_door"></p>
+<p id="r_fender"></p>
+
+<button onclick="window.print()">طباعة التقرير</button>
+
+</div>
+
+<script>
+
+function generate(){
+
+  document.getElementById("r_vin").innerText =
+    "VIN: " + document.getElementById("vin").value;
+
+  document.getElementById("r_car").innerText =
+    "السيارة: " + document.getElementById("car").value;
+
+  document.getElementById("r_hood").innerText =
+    document.getElementById("hood").value;
+
+  document.getElementById("r_door").innerText =
+    document.getElementById("door").value;
+
+  document.getElementById("r_fender").innerText =
+    document.getElementById("fender").value;
+
+  document.getElementById("report").style.display = "block";
+}
+
+</script>
+
+</body>
+</html>
