@@ -10,146 +10,197 @@
 
 <style>
 
-body{
+*{
     margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
     font-family:Arial;
-    background:#f3f4f6;
+    background:#0f172a;
+    color:white;
     direction:rtl;
 }
 
-.header{
-    background:#0f172a;
-    color:white;
-    padding:20px;
-    text-align:center;
-    font-size:24px;
-    font-weight:bold;
-    border-bottom-left-radius:20px;
-    border-bottom-right-radius:20px;
-}
-
 .container{
-    max-width:500px;
+    max-width:430px;
     margin:auto;
     padding:15px;
 }
 
-.card{
-    background:white;
-    border-radius:22px;
-    padding:18px;
-    margin-top:18px;
-    box-shadow:0 4px 15px rgba(0,0,0,0.08);
+/* HEADER */
+
+.header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-top:10px;
+}
+
+.logo{
+    font-size:24px;
+    font-weight:bold;
+}
+
+.menu{
+    font-size:24px;
+}
+
+/* SEARCH */
+
+.search-box{
+    background:#1e293b;
+    padding:15px;
+    border-radius:20px;
+    margin-top:20px;
+}
+
+.search-title{
+    margin-bottom:15px;
+    font-size:18px;
 }
 
 input{
     width:100%;
     padding:14px;
+    border:none;
     border-radius:14px;
-    border:1px solid #ddd;
-    margin-top:10px;
+    background:#334155;
+    color:white;
+    margin-bottom:10px;
     font-size:15px;
-    box-sizing:border-box;
+}
+
+input::placeholder{
+    color:#cbd5e1;
 }
 
 button{
     width:100%;
-    padding:15px;
+    padding:14px;
     border:none;
-    border-radius:16px;
-    background:#0f172a;
+    border-radius:14px;
+    background:#2563eb;
     color:white;
     font-size:16px;
-    margin-top:15px;
     cursor:pointer;
 }
 
-button:hover{
-    opacity:0.95;
+/* STATUS */
+
+.status-card{
+    background:#1e293b;
+    margin-top:20px;
+    border-radius:20px;
+    padding:18px;
 }
 
-.car-container{
-    position:relative;
-    margin-top:20px;
+.status-header{
     display:flex;
-    justify-content:center;
+    justify-content:space-between;
     align-items:center;
 }
 
-.car-image{
-    width:260px;
+.score{
+    width:70px;
+    height:70px;
+    border-radius:50%;
+    background:#22c55e;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:20px;
+    font-weight:bold;
 }
+
+/* CAR */
+
+.car-box{
+    position:relative;
+    margin-top:30px;
+    display:flex;
+    justify-content:center;
+}
+
+.car-image{
+    width:220px;
+}
+
+/* PARTS */
 
 .part{
     position:absolute;
     background:#22c55e;
     color:white;
-    padding:10px 12px;
+    padding:8px 10px;
     border-radius:12px;
-    font-size:13px;
+    font-size:11px;
     cursor:pointer;
-    user-select:none;
     transition:0.2s;
-    box-shadow:0 2px 8px rgba(0,0,0,0.15);
+    text-align:center;
+    min-width:70px;
 }
 
 .part:hover{
     transform:scale(1.05);
 }
 
-/* أماكن القطع */
+/* POSITIONS */
 
 .hood{
-    top:20px;
+    top:5px;
 }
 
 .roof{
-    top:130px;
+    top:110px;
 }
 
 .trunk{
-    bottom:20px;
+    bottom:5px;
 }
 
 .lf-fender{
-    top:130px;
-    left:0px;
+    top:110px;
+    left:-5px;
 }
 
 .rf-fender{
-    top:130px;
-    right:0px;
+    top:110px;
+    right:-5px;
 }
 
 .lf-door{
-    top:240px;
-    left:0px;
+    top:210px;
+    left:-10px;
 }
 
 .rf-door{
-    top:240px;
-    right:0px;
+    top:210px;
+    right:-10px;
 }
 
 .lr-door{
-    top:350px;
-    left:0px;
+    top:310px;
+    left:-10px;
 }
 
 .rr-door{
-    top:350px;
-    right:0px;
+    top:310px;
+    right:-10px;
 }
 
 .lr-fender{
-    top:460px;
-    left:0px;
+    top:410px;
+    left:-5px;
 }
 
 .rr-fender{
-    top:460px;
-    right:0px;
+    top:410px;
+    right:-5px;
 }
+
+/* LEGEND */
 
 .legend{
     margin-top:25px;
@@ -158,22 +209,28 @@ button:hover{
 .legend-item{
     display:flex;
     align-items:center;
-    margin-top:10px;
-    gap:10px;
+    margin-top:12px;
 }
 
 .color{
     width:18px;
     height:18px;
     border-radius:50%;
+    margin-left:10px;
+}
+
+/* REPORT */
+
+.report-btn{
+    margin-top:25px;
 }
 
 .footer{
     text-align:center;
-    color:#777;
-    margin-top:20px;
+    margin-top:30px;
+    margin-bottom:20px;
+    color:#94a3b8;
     font-size:13px;
-    padding-bottom:20px;
 }
 
 </style>
@@ -182,17 +239,29 @@ button:hover{
 
 <body>
 
-<div class="header">
-🚗 SHASSIHA INSPECTION
-</div>
-
 <div class="container">
 
-<div class="card">
+<div class="header">
 
-<h3>🔍 بحث رقم الشاصي</h3>
+<div class="logo">
+🚗 SHASSIHA
+</div>
 
-<input placeholder="رقم الشاصي">
+<div class="menu">
+☰
+</div>
+
+</div>
+
+<!-- SEARCH -->
+
+<div class="search-box">
+
+<div class="search-title">
+🔍 فحص السيارة
+</div>
+
+<input placeholder="رقم الشاصي VIN">
 
 <input placeholder="اسم السيارة">
 
@@ -202,11 +271,28 @@ button:hover{
 
 </div>
 
-<div class="card">
+<!-- STATUS -->
 
-<h3>🧪 مخطط الصبغ التفاعلي</h3>
+<div class="status-card">
 
-<div class="car-container">
+<div class="status-header">
+
+<div>
+<h3>حالة الصبغ</h3>
+<p style="color:#94a3b8; margin-top:5px;">
+Original Condition
+</p>
+</div>
+
+<div class="score">
+90%
+</div>
+
+</div>
+
+<!-- CAR -->
+
+<div class="car-box">
 
 <img src="car-top.png" class="car-image">
 
@@ -256,33 +342,39 @@ RR Fender
 
 </div>
 
+<!-- LEGEND -->
+
 <div class="legend">
 
 <div class="legend-item">
 <div class="color" style="background:#22c55e"></div>
-<div>أصلي</div>
+أصلي
 </div>
 
 <div class="legend-item">
 <div class="color" style="background:#eab308"></div>
-<div>صبغ وكالة</div>
+صبغ وكالة
 </div>
 
 <div class="legend-item">
 <div class="color" style="background:#f97316"></div>
-<div>مرشوش</div>
+مرشوش
 </div>
 
 <div class="legend-item">
 <div class="color" style="background:#ef4444"></div>
-<div>معجون</div>
+معجون
 </div>
 
 </div>
+
+<div class="report-btn">
 
 <button onclick="window.print()">
-🖨️ إنشاء / طباعة التقرير
+🖨️ إنشاء التقرير
 </button>
+
+</div>
 
 </div>
 
