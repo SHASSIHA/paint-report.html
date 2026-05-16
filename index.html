@@ -88,16 +88,18 @@ body{
 
 .part{
     position:absolute;
+    width:26px;
+    height:26px;
+    border-radius:50%;
     background:#22c55e;
-    color:white;
-    padding:9px 10px;
-    border-radius:12px;
-    font-size:11px;
-    min-width:75px;
-    text-align:center;
+    border:3px solid white;
     cursor:pointer;
     transition:0.2s;
-    font-weight:600;
+    box-shadow:0 4px 10px rgba(0,0,0,0.25);
+}
+
+.part:hover{
+    transform:scale(1.15);
 }
 
 .part:hover{
@@ -254,10 +256,27 @@ body{
 
 <img src="car-top.png" class="car-image">
 
-<div class="part hood" onclick="changeColor(this)">
-Hood
-</div>
+<div class="part hood" onclick="changeColor(this)"></div>
 
+<div class="part roof" onclick="changeColor(this)"></div>
+
+<div class="part trunk" onclick="changeColor(this)"></div>
+
+<div class="part lf-fender" onclick="changeColor(this)"></div>
+
+<div class="part rf-fender" onclick="changeColor(this)"></div>
+
+<div class="part lf-door" onclick="changeColor(this)"></div>
+
+<div class="part rf-door" onclick="changeColor(this)"></div>
+
+<div class="part lr-door" onclick="changeColor(this)"></div>
+
+<div class="part rr-door" onclick="changeColor(this)"></div>
+
+<div class="part lr-fender" onclick="changeColor(this)"></div>
+
+<div class="part rr-fender" onclick="changeColor(this)"></div>
 <div class="part roof" onclick="changeColor(this)">
 Roof
 </div>
