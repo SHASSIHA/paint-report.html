@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>SHASSIHA</title>
+<title>SHASSIHA Inspection</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
 
@@ -19,7 +19,7 @@
 }
 
 body{
-    background:#111827;
+    background:#0f172a;
     font-family:'Cairo',sans-serif;
     direction:rtl;
     color:white;
@@ -44,135 +44,140 @@ body{
 /* CARD */
 
 .card{
-    background:#1f2937;
-    border-radius:25px;
+    background:#1e293b;
+    border-radius:28px;
     padding:20px;
     margin-bottom:20px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.25);
 }
 
 /* INPUTS */
 
 .input{
     width:100%;
-    background:#111827;
+    background:#0f172a;
     border:none;
-    padding:15px;
-    border-radius:15px;
+    padding:16px;
+    border-radius:18px;
     color:white;
     margin-bottom:12px;
     font-size:15px;
+    outline:none;
 }
 
 .input::placeholder{
-    color:#9ca3af;
+    color:#94a3b8;
 }
 
-/* CAR */
+/* TITLE */
 
-.car-area{
+.section-title{
+    font-size:20px;
+    font-weight:700;
+    margin-bottom:20px;
+}
+
+/* SVG AREA */
+
+.car-wrapper{
     position:relative;
-    width:320px;
-    height:560px;
-    margin:auto;
+    display:flex;
+    justify-content:center;
+    align-items:center;
     margin-top:20px;
-    margin-bottom:30px;
+    margin-bottom:20px;
 }
 
-.car-image{
-    width:220px;
-    display:block;
-    margin:auto;
+.car-svg{
+    width:240px;
+    opacity:0.95;
 }
 
 /* PARTS */
 
 .part{
     position:absolute;
-    width:26px;
-    height:26px;
-    border-radius:50%;
+    width:38px;
+    height:38px;
+    border-radius:14px;
     background:#22c55e;
     border:3px solid white;
     cursor:pointer;
     transition:0.2s;
-    box-shadow:0 4px 10px rgba(0,0,0,0.25);
+    box-shadow:0 4px 12px rgba(0,0,0,0.25);
 }
 
 .part:hover{
-    transform:scale(1.15);
-}
-
-.part:hover{
-    transform:scale(1.05);
+    transform:scale(1.08);
 }
 
 /* POSITIONS */
 
 .hood{
-    top:0px;
+    top:5px;
 }
 
 .roof{
-    top:95px;
+    top:100px;
 }
 
 .trunk{
-    bottom:0px;
+    bottom:5px;
 }
 
 .lf-fender{
-    top:105px;
-    left:0px;
+    top:120px;
+    left:10px;
 }
 
 .rf-fender{
-    top:105px;
-    right:0px;
+    top:120px;
+    right:10px;
 }
 
 .lf-door{
-    top:200px;
-    left:-5px;
-}
-
-.rf-door{
-    top:200px;
-    right:-5px;
-}
-
-.lr-door{
-    top:295px;
-    left:-5px;
-}
-
-.rr-door{
-    top:295px;
-    right:-5px;
-}
-
-.lr-fender{
-    top:390px;
+    top:220px;
     left:0px;
 }
 
-.rr-fender{
-    top:390px;
+.rf-door{
+    top:220px;
     right:0px;
+}
+
+.lr-door{
+    top:320px;
+    left:0px;
+}
+
+.rr-door{
+    top:320px;
+    right:0px;
+}
+
+.lr-fender{
+    top:430px;
+    left:10px;
+}
+
+.rr-fender{
+    top:430px;
+    right:10px;
 }
 
 /* LEGEND */
 
 .legend{
-    margin-top:15px;
+    margin-top:25px;
 }
 
 .legend-item{
     display:flex;
     align-items:center;
-    margin-bottom:10px;
+    margin-bottom:12px;
 }
 
-.color{
+.legend-color{
     width:18px;
     height:18px;
     border-radius:50%;
@@ -183,13 +188,15 @@ body{
 
 .notes{
     width:100%;
-    height:100px;
-    background:#111827;
+    height:110px;
+    background:#0f172a;
     border:none;
-    border-radius:15px;
+    border-radius:18px;
     padding:15px;
     color:white;
+    font-size:14px;
     resize:none;
+    outline:none;
     font-family:'Cairo',sans-serif;
 }
 
@@ -197,22 +204,22 @@ body{
 
 .btn{
     width:100%;
-    background:#f97316;
+    padding:17px;
     border:none;
-    padding:16px;
-    border-radius:18px;
+    border-radius:20px;
+    background:linear-gradient(135deg,#f97316,#ea580c);
     color:white;
     font-size:16px;
     font-weight:bold;
-    margin-top:20px;
     cursor:pointer;
+    margin-top:20px;
 }
 
 /* FOOTER */
 
 .footer{
     text-align:center;
-    color:#6b7280;
+    color:#64748b;
     margin-top:20px;
     margin-bottom:20px;
     font-size:13px;
@@ -234,6 +241,10 @@ body{
 
 <div class="card">
 
+<div class="section-title">
+معلومات السيارة
+</div>
+
 <input class="input" placeholder="رقم الشاصي VIN">
 
 <input class="input" placeholder="اسم السيارة">
@@ -244,17 +255,17 @@ body{
 
 </div>
 
-<!-- CAR -->
+<!-- PAINT -->
 
 <div class="card">
 
-<h3 style="margin-bottom:20px;">
+<div class="section-title">
 مخطط الصبغ
-</h3>
+</div>
 
-<div class="car-area">
+<div class="car-wrapper">
 
-<img src="car-top.png" class="car-image">
+<img src="car-top-view.svg" class="car-svg">
 
 <div class="part hood" onclick="changeColor(this)"></div>
 
@@ -277,45 +288,6 @@ body{
 <div class="part lr-fender" onclick="changeColor(this)"></div>
 
 <div class="part rr-fender" onclick="changeColor(this)"></div>
-<div class="part roof" onclick="changeColor(this)">
-Roof
-</div>
-
-<div class="part trunk" onclick="changeColor(this)">
-Trunk
-</div>
-
-<div class="part lf-fender" onclick="changeColor(this)">
-LF Fender
-</div>
-
-<div class="part rf-fender" onclick="changeColor(this)">
-RF Fender
-</div>
-
-<div class="part lf-door" onclick="changeColor(this)">
-LF Door
-</div>
-
-<div class="part rf-door" onclick="changeColor(this)">
-RF Door
-</div>
-
-<div class="part lr-door" onclick="changeColor(this)">
-LR Door
-</div>
-
-<div class="part rr-door" onclick="changeColor(this)">
-RR Door
-</div>
-
-<div class="part lr-fender" onclick="changeColor(this)">
-LR Fender
-</div>
-
-<div class="part rr-fender" onclick="changeColor(this)">
-RR Fender
-</div>
 
 </div>
 
@@ -324,22 +296,22 @@ RR Fender
 <div class="legend">
 
 <div class="legend-item">
-<div class="color" style="background:#22c55e"></div>
+<div class="legend-color" style="background:#22c55e"></div>
 أصلي
 </div>
 
 <div class="legend-item">
-<div class="color" style="background:#eab308"></div>
+<div class="legend-color" style="background:#eab308"></div>
 صبغ وكالة
 </div>
 
 <div class="legend-item">
-<div class="color" style="background:#f97316"></div>
+<div class="legend-color" style="background:#f97316"></div>
 مرشوش
 </div>
 
 <div class="legend-item">
-<div class="color" style="background:#ef4444"></div>
+<div class="legend-color" style="background:#ef4444"></div>
 معجون
 </div>
 
@@ -351,9 +323,9 @@ RR Fender
 
 <div class="card">
 
-<h3 style="margin-bottom:15px;">
+<div class="section-title">
 ملاحظات
-</h3>
+</div>
 
 <textarea class="notes" placeholder="اكتب الملاحظات هنا..."></textarea>
 
@@ -390,6 +362,7 @@ function changeColor(element){
     else{
         element.style.background = "#22c55e";
     }
+
 }
 
 </script>
