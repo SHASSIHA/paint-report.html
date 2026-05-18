@@ -28,33 +28,33 @@ body{
 .container{
     max-width:430px;
     margin:auto;
-    padding:16px;
+    padding:14px;
 }
 
 /* HEADER */
 
 .header{
     text-align:center;
-    font-size:28px;
+    font-size:26px;
     font-weight:700;
-    margin-top:20px;
-    margin-bottom:20px;
+    margin-top:15px;
+    margin-bottom:15px;
 }
 
 /* CARD */
 
 .card{
     background:#1e293b;
-    border-radius:24px;
-    padding:20px;
-    margin-bottom:18px;
-    box-shadow:0 8px 24px rgba(0,0,0,0.25);
+    border-radius:22px;
+    padding:16px;
+    margin-bottom:14px;
+    box-shadow:0 6px 18px rgba(0,0,0,0.25);
 }
 
 .title{
-    font-size:20px;
+    font-size:18px;
     font-weight:700;
-    margin-bottom:18px;
+    margin-bottom:15px;
 }
 
 /* INPUTS */
@@ -63,11 +63,11 @@ body{
     width:100%;
     background:#111827;
     border:none;
-    border-radius:16px;
-    padding:15px;
+    border-radius:14px;
+    padding:14px;
     color:white;
-    font-size:15px;
-    margin-bottom:12px;
+    font-size:14px;
+    margin-bottom:10px;
     outline:none;
 }
 
@@ -77,44 +77,67 @@ body{
 
 /* PARTS */
 
-.parts-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:12px;
+.parts{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
 }
 
-.part-card{
+.part{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
     background:#111827;
-    border-radius:18px;
-    padding:14px;
+    border-radius:14px;
+    padding:12px 14px;
+    border-right:6px solid #22c55e;
 }
 
 .part-name{
     font-size:14px;
-    margin-bottom:10px;
     font-weight:600;
 }
 
-.select{
-    width:100%;
-    padding:12px;
-    border:none;
-    border-radius:12px;
-    background:#0f172a;
-    color:white;
-    font-size:13px;
-    outline:none;
+/* BUTTONS */
+
+.status-buttons{
+    display:flex;
+    gap:6px;
+}
+
+.status-btn{
+    width:18px;
+    height:18px;
+    border-radius:50%;
+    cursor:pointer;
+    border:2px solid white;
+}
+
+.green{
+    background:#22c55e;
+}
+
+.yellow{
+    background:#eab308;
+}
+
+.orange{
+    background:#f97316;
+}
+
+.red{
+    background:#ef4444;
 }
 
 /* NOTES */
 
 .notes{
     width:100%;
-    height:110px;
+    height:90px;
     background:#111827;
     border:none;
-    border-radius:16px;
-    padding:15px;
+    border-radius:14px;
+    padding:12px;
     color:white;
     resize:none;
     outline:none;
@@ -125,33 +148,15 @@ body{
 
 .btn{
     width:100%;
-    padding:17px;
+    padding:15px;
     border:none;
-    border-radius:18px;
+    border-radius:16px;
     background:linear-gradient(135deg,#f97316,#ea580c);
     color:white;
-    font-size:16px;
+    font-size:15px;
     font-weight:bold;
     cursor:pointer;
-    margin-top:20px;
-}
-
-/* STATUS COLORS */
-
-.original{
-    border-right:5px solid #22c55e;
-}
-
-.agency{
-    border-right:5px solid #eab308;
-}
-
-.repaint{
-    border-right:5px solid #f97316;
-}
-
-.putty{
-    border-right:5px solid #ef4444;
+    margin-top:15px;
 }
 
 /* FOOTER */
@@ -159,9 +164,43 @@ body{
 .footer{
     text-align:center;
     color:#64748b;
-    margin-top:20px;
-    margin-bottom:20px;
-    font-size:13px;
+    margin-top:10px;
+    margin-bottom:15px;
+    font-size:12px;
+}
+
+/* PRINT */
+
+@media print{
+
+    body{
+        background:white;
+    }
+
+    .container{
+        max-width:100%;
+        padding:0;
+    }
+
+    .card{
+        box-shadow:none;
+        break-inside:avoid;
+        page-break-inside:avoid;
+    }
+
+    .btn{
+        display:none;
+    }
+
+    .footer{
+        color:#000;
+    }
+
+    @page{
+        size:auto;
+        margin:10mm;
+    }
+
 }
 
 </style>
@@ -202,86 +241,86 @@ body{
 فحص الصبغ
 </div>
 
-<div class="parts-grid">
+<div class="parts">
 
-<div class="part-card original">
+<div class="part">
 <div class="part-name">Hood</div>
-<select class="select" onchange="changeStatus(this)">
-<option>Original</option>
-<option>Agency Paint</option>
-<option>Repainted</option>
-<option>Putty</option>
-</select>
+<div class="status-buttons">
+<div class="status-btn green" onclick="setColor(this,'#22c55e')"></div>
+<div class="status-btn yellow" onclick="setColor(this,'#eab308')"></div>
+<div class="status-btn orange" onclick="setColor(this,'#f97316')"></div>
+<div class="status-btn red" onclick="setColor(this,'#ef4444')"></div>
+</div>
 </div>
 
-<div class="part-card original">
+<div class="part">
 <div class="part-name">LF Fender</div>
-<select class="select" onchange="changeStatus(this)">
-<option>Original</option>
-<option>Agency Paint</option>
-<option>Repainted</option>
-<option>Putty</option>
-</select>
+<div class="status-buttons">
+<div class="status-btn green" onclick="setColor(this,'#22c55e')"></div>
+<div class="status-btn yellow" onclick="setColor(this,'#eab308')"></div>
+<div class="status-btn orange" onclick="setColor(this,'#f97316')"></div>
+<div class="status-btn red" onclick="setColor(this,'#ef4444')"></div>
+</div>
 </div>
 
-<div class="part-card original">
+<div class="part">
 <div class="part-name">RF Fender</div>
-<select class="select" onchange="changeStatus(this)">
-<option>Original</option>
-<option>Agency Paint</option>
-<option>Repainted</option>
-<option>Putty</option>
-</select>
+<div class="status-buttons">
+<div class="status-btn green" onclick="setColor(this,'#22c55e')"></div>
+<div class="status-btn yellow" onclick="setColor(this,'#eab308')"></div>
+<div class="status-btn orange" onclick="setColor(this,'#f97316')"></div>
+<div class="status-btn red" onclick="setColor(this,'#ef4444')"></div>
+</div>
 </div>
 
-<div class="part-card original">
+<div class="part">
 <div class="part-name">LF Door</div>
-<select class="select" onchange="changeStatus(this)">
-<option>Original</option>
-<option>Agency Paint</option>
-<option>Repainted</option>
-<option>Putty</option>
-</select>
+<div class="status-buttons">
+<div class="status-btn green" onclick="setColor(this,'#22c55e')"></div>
+<div class="status-btn yellow" onclick="setColor(this,'#eab308')"></div>
+<div class="status-btn orange" onclick="setColor(this,'#f97316')"></div>
+<div class="status-btn red" onclick="setColor(this,'#ef4444')"></div>
+</div>
 </div>
 
-<div class="part-card original">
+<div class="part">
 <div class="part-name">RF Door</div>
-<select class="select" onchange="changeStatus(this)">
-<option>Original</option>
-<option>Agency Paint</option>
-<option>Repainted</option>
-<option>Putty</option>
-</select>
+<div class="status-buttons">
+<div class="status-btn green" onclick="setColor(this,'#22c55e')"></div>
+<div class="status-btn yellow" onclick="setColor(this,'#eab308')"></div>
+<div class="status-btn orange" onclick="setColor(this,'#f97316')"></div>
+<div class="status-btn red" onclick="setColor(this,'#ef4444')"></div>
+</div>
 </div>
 
-<div class="part-card original">
+<div class="part">
 <div class="part-name">LR Door</div>
-<select class="select" onchange="changeStatus(this)">
-<option>Original</option>
-<option>Agency Paint</option>
-<option>Repainted</option>
-<option>Putty</option>
-</select>
+<div class="status-buttons">
+<div class="status-btn green" onclick="setColor(this,'#22c55e')"></div>
+<div class="status-btn yellow" onclick="setColor(this,'#eab308')"></div>
+<div class="status-btn orange" onclick="setColor(this,'#f97316')"></div>
+<div class="status-btn red" onclick="setColor(this,'#ef4444')"></div>
+</div>
 </div>
 
-<div class="part-card original">
+<div class="part">
 <div class="part-name">RR Door</div>
-<select class="select" onchange="changeStatus(this)">
-<option>Original</option>
-<option>Agency Paint</option>
-<option>Repainted</option>
-<option>Putty</option>
-</select>
+<div class="status-buttons">
+<div class="status-btn green" onclick="setColor(this,'#22c55e')"></div>
+<div class="status-btn yellow" onclick="setColor(this,'#eab308')"></div>
+<div class="status-btn orange" onclick="setColor(this,'#f97316')"></div>
+<div class="status-btn red" onclick="setColor(this,'#ef4444')"></div>
+</div>
 </div>
 
-<div class="part-card original">
+<div class="part">
 <div class="part-name">Trunk</div>
-<select class="select" onchange="changeStatus(this)">
-<option>Original</option>
-<option>Agency Paint</option>
-<option>Repainted</option>
-<option>Putty</option>
-</select>
+<div class="status-buttons">
+<div class="status-btn green" onclick="setColor(this,'#22c55e')"></div>
+<div class="status-btn yellow" onclick="setColor(this,'#eab308')"></div>
+<div class="status-btn orange" onclick="setColor(this,'#f97316')"></div>
+<div class="status-btn red" onclick="setColor(this,'#ef4444')"></div>
+</div>
 </div>
 
 </div>
@@ -312,36 +351,16 @@ SHASSIHA © 2026
 
 <script>
 
-function changeStatus(select){
+function setColor(element,color){
 
-    let card = select.parentElement;
+    let part = element.closest('.part');
 
-    card.classList.remove(
-        "original",
-        "agency",
-        "repaint",
-        "putty"
-    );
-
-    if(select.value == "Original"){
-        card.classList.add("original");
-    }
-
-    else if(select.value == "Agency Paint"){
-        card.classList.add("agency");
-    }
-
-    else if(select.value == "Repainted"){
-        card.classList.add("repaint");
-    }
-
-    else{
-        card.classList.add("putty");
-    }
+    part.style.borderRightColor = color;
 
 }
 
 </script>
 
 </body>
+
 </html>
