@@ -28,7 +28,7 @@ body{
 .container{
     max-width:430px;
     margin:auto;
-    padding:15px;
+    padding:16px;
 }
 
 /* HEADER */
@@ -45,23 +45,29 @@ body{
 
 .card{
     background:#1e293b;
-    border-radius:28px;
+    border-radius:24px;
     padding:20px;
-    margin-bottom:20px;
-    box-shadow:0 10px 30px rgba(0,0,0,0.25);
+    margin-bottom:18px;
+    box-shadow:0 8px 24px rgba(0,0,0,0.25);
+}
+
+.title{
+    font-size:20px;
+    font-weight:700;
+    margin-bottom:18px;
 }
 
 /* INPUTS */
 
 .input{
     width:100%;
-    background:#0f172a;
+    background:#111827;
     border:none;
-    padding:16px;
-    border-radius:18px;
+    border-radius:16px;
+    padding:15px;
     color:white;
-    margin-bottom:12px;
     font-size:15px;
+    margin-bottom:12px;
     outline:none;
 }
 
@@ -69,119 +75,35 @@ body{
     color:#94a3b8;
 }
 
-/* TITLE */
-
-.section-title{
-    font-size:20px;
-    font-weight:700;
-    margin-bottom:20px;
-}
-
-/* SVG AREA */
-
-.car-wrapper{
-    position:relative;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    margin-top:20px;
-    margin-bottom:20px;
-}
-
-.car-svg{
-    width:240px;
-    opacity:0.95;
-}
-
 /* PARTS */
 
-.part{
-    position:absolute;
-    width:38px;
-    height:38px;
-    border-radius:14px;
-    background:#22c55e;
-    border:3px solid white;
-    cursor:pointer;
-    transition:0.2s;
-    box-shadow:0 4px 12px rgba(0,0,0,0.25);
+.parts-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:12px;
 }
 
-.part:hover{
-    transform:scale(1.08);
+.part-card{
+    background:#111827;
+    border-radius:18px;
+    padding:14px;
 }
 
-/* POSITIONS */
-
-.hood{
-    top:5px;
+.part-name{
+    font-size:14px;
+    margin-bottom:10px;
+    font-weight:600;
 }
 
-.roof{
-    top:100px;
-}
-
-.trunk{
-    bottom:5px;
-}
-
-.lf-fender{
-    top:120px;
-    left:10px;
-}
-
-.rf-fender{
-    top:120px;
-    right:10px;
-}
-
-.lf-door{
-    top:220px;
-    left:0px;
-}
-
-.rf-door{
-    top:220px;
-    right:0px;
-}
-
-.lr-door{
-    top:320px;
-    left:0px;
-}
-
-.rr-door{
-    top:320px;
-    right:0px;
-}
-
-.lr-fender{
-    top:430px;
-    left:10px;
-}
-
-.rr-fender{
-    top:430px;
-    right:10px;
-}
-
-/* LEGEND */
-
-.legend{
-    margin-top:25px;
-}
-
-.legend-item{
-    display:flex;
-    align-items:center;
-    margin-bottom:12px;
-}
-
-.legend-color{
-    width:18px;
-    height:18px;
-    border-radius:50%;
-    margin-left:10px;
+.select{
+    width:100%;
+    padding:12px;
+    border:none;
+    border-radius:12px;
+    background:#0f172a;
+    color:white;
+    font-size:13px;
+    outline:none;
 }
 
 /* NOTES */
@@ -189,12 +111,11 @@ body{
 .notes{
     width:100%;
     height:110px;
-    background:#0f172a;
+    background:#111827;
     border:none;
-    border-radius:18px;
+    border-radius:16px;
     padding:15px;
     color:white;
-    font-size:14px;
     resize:none;
     outline:none;
     font-family:'Cairo',sans-serif;
@@ -206,13 +127,31 @@ body{
     width:100%;
     padding:17px;
     border:none;
-    border-radius:20px;
+    border-radius:18px;
     background:linear-gradient(135deg,#f97316,#ea580c);
     color:white;
     font-size:16px;
     font-weight:bold;
     cursor:pointer;
     margin-top:20px;
+}
+
+/* STATUS COLORS */
+
+.original{
+    border-right:5px solid #22c55e;
+}
+
+.agency{
+    border-right:5px solid #eab308;
+}
+
+.repaint{
+    border-right:5px solid #f97316;
+}
+
+.putty{
+    border-right:5px solid #ef4444;
 }
 
 /* FOOTER */
@@ -241,7 +180,7 @@ body{
 
 <div class="card">
 
-<div class="section-title">
+<div class="title">
 معلومات السيارة
 </div>
 
@@ -255,64 +194,94 @@ body{
 
 </div>
 
-<!-- PAINT -->
+<!-- PARTS -->
 
 <div class="card">
 
-<div class="section-title">
-مخطط الصبغ
+<div class="title">
+فحص الصبغ
 </div>
 
-<div class="car-wrapper">
+<div class="parts-grid">
 
-<img src="car-top-view.svg" class="car-svg">
-
-<div class="part hood" onclick="changeColor(this)"></div>
-
-<div class="part roof" onclick="changeColor(this)"></div>
-
-<div class="part trunk" onclick="changeColor(this)"></div>
-
-<div class="part lf-fender" onclick="changeColor(this)"></div>
-
-<div class="part rf-fender" onclick="changeColor(this)"></div>
-
-<div class="part lf-door" onclick="changeColor(this)"></div>
-
-<div class="part rf-door" onclick="changeColor(this)"></div>
-
-<div class="part lr-door" onclick="changeColor(this)"></div>
-
-<div class="part rr-door" onclick="changeColor(this)"></div>
-
-<div class="part lr-fender" onclick="changeColor(this)"></div>
-
-<div class="part rr-fender" onclick="changeColor(this)"></div>
-
+<div class="part-card original">
+<div class="part-name">Hood</div>
+<select class="select" onchange="changeStatus(this)">
+<option>Original</option>
+<option>Agency Paint</option>
+<option>Repainted</option>
+<option>Putty</option>
+</select>
 </div>
 
-<!-- LEGEND -->
-
-<div class="legend">
-
-<div class="legend-item">
-<div class="legend-color" style="background:#22c55e"></div>
-أصلي
+<div class="part-card original">
+<div class="part-name">LF Fender</div>
+<select class="select" onchange="changeStatus(this)">
+<option>Original</option>
+<option>Agency Paint</option>
+<option>Repainted</option>
+<option>Putty</option>
+</select>
 </div>
 
-<div class="legend-item">
-<div class="legend-color" style="background:#eab308"></div>
-صبغ وكالة
+<div class="part-card original">
+<div class="part-name">RF Fender</div>
+<select class="select" onchange="changeStatus(this)">
+<option>Original</option>
+<option>Agency Paint</option>
+<option>Repainted</option>
+<option>Putty</option>
+</select>
 </div>
 
-<div class="legend-item">
-<div class="legend-color" style="background:#f97316"></div>
-مرشوش
+<div class="part-card original">
+<div class="part-name">LF Door</div>
+<select class="select" onchange="changeStatus(this)">
+<option>Original</option>
+<option>Agency Paint</option>
+<option>Repainted</option>
+<option>Putty</option>
+</select>
 </div>
 
-<div class="legend-item">
-<div class="legend-color" style="background:#ef4444"></div>
-معجون
+<div class="part-card original">
+<div class="part-name">RF Door</div>
+<select class="select" onchange="changeStatus(this)">
+<option>Original</option>
+<option>Agency Paint</option>
+<option>Repainted</option>
+<option>Putty</option>
+</select>
+</div>
+
+<div class="part-card original">
+<div class="part-name">LR Door</div>
+<select class="select" onchange="changeStatus(this)">
+<option>Original</option>
+<option>Agency Paint</option>
+<option>Repainted</option>
+<option>Putty</option>
+</select>
+</div>
+
+<div class="part-card original">
+<div class="part-name">RR Door</div>
+<select class="select" onchange="changeStatus(this)">
+<option>Original</option>
+<option>Agency Paint</option>
+<option>Repainted</option>
+<option>Putty</option>
+</select>
+</div>
+
+<div class="part-card original">
+<div class="part-name">Trunk</div>
+<select class="select" onchange="changeStatus(this)">
+<option>Original</option>
+<option>Agency Paint</option>
+<option>Repainted</option>
+<option>Putty</option>
+</select>
 </div>
 
 </div>
@@ -323,7 +292,7 @@ body{
 
 <div class="card">
 
-<div class="section-title">
+<div class="title">
 ملاحظات
 </div>
 
@@ -343,24 +312,31 @@ SHASSIHA © 2026
 
 <script>
 
-function changeColor(element){
+function changeStatus(select){
 
-    let current = getComputedStyle(element).backgroundColor;
+    let card = select.parentElement;
 
-    if(current == "rgb(34, 197, 94)"){
-        element.style.background = "#eab308";
+    card.classList.remove(
+        "original",
+        "agency",
+        "repaint",
+        "putty"
+    );
+
+    if(select.value == "Original"){
+        card.classList.add("original");
     }
 
-    else if(current == "rgb(234, 179, 8)"){
-        element.style.background = "#f97316";
+    else if(select.value == "Agency Paint"){
+        card.classList.add("agency");
     }
 
-    else if(current == "rgb(249, 115, 22)"){
-        element.style.background = "#ef4444";
+    else if(select.value == "Repainted"){
+        card.classList.add("repaint");
     }
 
     else{
-        element.style.background = "#22c55e";
+        card.classList.add("putty");
     }
 
 }
