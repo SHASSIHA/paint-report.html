@@ -2,6 +2,7 @@
 <html lang="ar">
 
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -42,6 +43,7 @@ background:#1e293b;
 border-radius:24px;
 padding:18px;
 margin-bottom:18px;
+box-shadow:0 6px 18px rgba(0,0,0,0.25);
 }
 
 .title{
@@ -76,60 +78,50 @@ margin:auto;
 margin-top:20px;
 }
 
-/* CAR BODY */
-
-.car-image{
-position:absolute;
-top:35px;
-left:50%;
-transform:translateX(-50%);
-width:170px;
-opacity:0.95;
-filter:drop-shadow(0 10px 20px rgba(0,0,0,0.35));
-}
-
 /* PARTS */
 
 .part{
 position:absolute;
 background:#22c55e;
 border:none;
-border-radius:14px;
+border-radius:18px;
 cursor:pointer;
 transition:0.2s;
 box-shadow:0 4px 10px rgba(0,0,0,0.25);
 }
 
 .part:hover{
-transform:scale(1.05);
+transform:scale(1.03);
 }
 
-/* HOOD */
+/* FRONT */
 
 .hood{
-width:90px;
-height:50px;
+width:150px;
+height:55px;
 top:55px;
-left:85px;
+left:55px;
+border-radius:22px;
 }
 
 /* ROOF */
 
 .roof{
-width:75px;
-height:130px;
-top:145px;
-left:92px;
-border-radius:20px;
+width:120px;
+height:180px;
+top:135px;
+left:70px;
+border-radius:28px;
 }
 
 /* TRUNK */
 
 .trunk{
-width:90px;
-height:50px;
+width:150px;
+height:55px;
 bottom:45px;
-left:85px;
+left:55px;
+border-radius:22px;
 }
 
 /* LEFT SIDE */
@@ -296,7 +288,9 @@ font-size:12px;
 
 <input class="input" placeholder="رقم الشاصي VIN">
 
-<input class="input" placeholder="اسم السيارة والموديل">
+<input class="input" placeholder="اسم السيارة">
+
+<input class="input" placeholder="الموديل">
 
 <input class="input" placeholder="العداد / الممشى">
 
@@ -311,8 +305,6 @@ font-size:12px;
 </div>
 
 <div class="car-container">
-
-<img src="car-top.png" class="car-image">
 
 <button class="part hood" onclick="changeColor(this)"></button>
 
