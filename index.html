@@ -2,205 +2,276 @@
 <html lang="ar">
 
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>SHASSIHA Inspection</title>
+<title>SHASSIHA</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
 
 <style>
 
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+margin:0;
+padding:0;
+box-sizing:border-box;
 }
 
 body{
-    background:#0f172a;
-    font-family:'Cairo',sans-serif;
-    direction:rtl;
-    color:white;
+background:#0f172a;
+font-family:'Cairo',sans-serif;
+direction:rtl;
+color:white;
 }
 
 .container{
-    max-width:430px;
-    margin:auto;
-    padding:14px;
+max-width:430px;
+margin:auto;
+padding:15px;
 }
-
-/* HEADER */
 
 .header{
-    text-align:center;
-    font-size:26px;
-    font-weight:700;
-    margin-top:15px;
-    margin-bottom:15px;
+text-align:center;
+font-size:28px;
+font-weight:700;
+margin:20px 0;
 }
 
-/* CARD */
-
 .card{
-    background:#1e293b;
-    border-radius:22px;
-    padding:16px;
-    margin-bottom:14px;
-    box-shadow:0 6px 18px rgba(0,0,0,0.25);
+background:#1e293b;
+border-radius:24px;
+padding:18px;
+margin-bottom:18px;
 }
 
 .title{
-    font-size:18px;
-    font-weight:700;
-    margin-bottom:15px;
+font-size:18px;
+font-weight:700;
+margin-bottom:15px;
 }
 
-/* INPUTS */
-
 .input{
-    width:100%;
-    background:#111827;
-    border:none;
-    border-radius:14px;
-    padding:14px;
-    color:white;
-    font-size:14px;
-    margin-bottom:10px;
-    outline:none;
+width:100%;
+padding:14px;
+background:#111827;
+border:none;
+border-radius:14px;
+color:white;
+margin-bottom:10px;
+font-size:14px;
+outline:none;
 }
 
 .input::placeholder{
-    color:#94a3b8;
+color:#94a3b8;
+}
+
+/* CAR */
+
+.car-container{
+position:relative;
+width:260px;
+height:500px;
+margin:auto;
+margin-top:20px;
+}
+
+/* CAR BODY */
+
+.car-body{
+position:absolute;
+top:40px;
+left:50%;
+transform:translateX(-50%);
+width:130px;
+height:420px;
+background:#d1d5db;
+border-radius:60px;
 }
 
 /* PARTS */
 
-.parts{
-    display:flex;
-    flex-direction:column;
-    gap:10px;
-}
-
 .part{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    background:#111827;
-    border-radius:14px;
-    padding:12px 14px;
-    border-right:6px solid #22c55e;
+position:absolute;
+background:#22c55e;
+border:none;
+border-radius:14px;
+cursor:pointer;
+transition:0.2s;
+box-shadow:0 4px 10px rgba(0,0,0,0.25);
 }
 
-.part-name{
-    font-size:14px;
-    font-weight:600;
+.part:hover{
+transform:scale(1.05);
 }
 
-/* BUTTONS */
+/* HOOD */
 
-.status-buttons{
-    display:flex;
-    gap:6px;
+.hood{
+width:90px;
+height:50px;
+top:55px;
+left:85px;
 }
 
-.status-btn{
-    width:24px;
-    height:24px;
-    border-radius:50%;
-    cursor:pointer;
-    border:2px solid white;
+/* ROOF */
+
+.roof{
+width:80px;
+height:90px;
+top:150px;
+left:90px;
 }
 
-.green{
-    background:#22c55e;
+/* TRUNK */
+
+.trunk{
+width:90px;
+height:50px;
+bottom:45px;
+left:85px;
 }
 
-.yellow{
-    background:#eab308;
+/* LEFT SIDE */
+
+.lf-fender{
+width:45px;
+height:55px;
+top:120px;
+left:25px;
 }
 
-.orange{
-    background:#f97316;
+.lf-door{
+width:45px;
+height:90px;
+top:190px;
+left:20px;
 }
 
-.red{
-    background:#ef4444;
+.lr-door{
+width:45px;
+height:90px;
+top:300px;
+left:20px;
+}
+
+.lr-fender{
+width:45px;
+height:55px;
+top:410px;
+left:25px;
+}
+
+/* RIGHT SIDE */
+
+.rf-fender{
+width:45px;
+height:55px;
+top:120px;
+right:25px;
+}
+
+.rf-door{
+width:45px;
+height:90px;
+top:190px;
+right:20px;
+}
+
+.rr-door{
+width:45px;
+height:90px;
+top:300px;
+right:20px;
+}
+
+.rr-fender{
+width:45px;
+height:55px;
+top:410px;
+right:25px;
+}
+
+/* LEGEND */
+
+.legend{
+margin-top:20px;
+}
+
+.legend-item{
+display:flex;
+align-items:center;
+margin-bottom:10px;
+}
+
+.legend-color{
+width:18px;
+height:18px;
+border-radius:50%;
+margin-left:10px;
 }
 
 /* NOTES */
 
 .notes{
-    width:100%;
-    height:90px;
-    background:#111827;
-    border:none;
-    border-radius:14px;
-    padding:16px;
-    color:white;
-    resize:none;
-    outline:none;
-    font-family:'Cairo',sans-serif;
+width:100%;
+height:90px;
+background:#111827;
+border:none;
+border-radius:14px;
+padding:12px;
+color:white;
+resize:none;
+outline:none;
+font-family:'Cairo',sans-serif;
 }
 
 /* BUTTON */
 
 .btn{
-    width:100%;
-    padding:15px;
-    border:none;
-    border-radius:16px;
-    background:linear-gradient(135deg,#f97316,#ea580c);
-    color:white;
-    font-size:15px;
-    font-weight:bold;
-    cursor:pointer;
-    margin-top:15px;
-}
-
-/* FOOTER */
-
-.footer{
-    text-align:center;
-    color:#64748b;
-    margin-top:10px;
-    margin-bottom:15px;
-    font-size:12px;
+width:100%;
+padding:15px;
+border:none;
+border-radius:16px;
+background:linear-gradient(135deg,#f97316,#ea580c);
+color:white;
+font-size:15px;
+font-weight:bold;
+cursor:pointer;
+margin-top:15px;
 }
 
 /* PRINT */
 
 @media print{
 
-    body{
-        background:white;
-    }
+body{
+background:white;
+}
 
-    .container{
-        max-width:100%;
-        padding:0;
-    }
+.btn{
+display:none;
+}
 
-    .card{
-        box-shadow:none;
-        break-inside:avoid;
-        page-break-inside:avoid;
-    }
+.card{
+box-shadow:none;
+break-inside:avoid;
+page-break-inside:avoid;
+}
 
-    .btn{
-        display:none;
-    }
+@page{
+margin:10mm;
+}
 
-    .footer{
-        color:#000;
-    }
+}
 
-    @page{
-        size:auto;
-        margin:10mm;
-    }
+/* FOOTER */
 
+.footer{
+text-align:center;
+color:#64748b;
+margin:15px 0;
+font-size:12px;
 }
 
 </style>
@@ -225,100 +296,72 @@ body{
 
 <input class="input" placeholder="رقم الشاصي VIN">
 
-<input class="input" placeholder=" اسم السيارة والموديل">
+<input class="input" placeholder="اسم السيارة">
+
+<input class="input" placeholder="الموديل">
 
 <input class="input" placeholder="العداد / الممشى">
 
 </div>
 
-<!-- PARTS -->
+<!-- CAR -->
 
 <div class="card">
 
 <div class="title">
-فحص الصبغ
+مخطط الصبغ
 </div>
 
-<div class="parts">
+<div class="car-container">
 
-<div class="part">
-<div class="part-name">Hood - غطاء المحرك </div>
-<div class="status-buttons">
-<div class="status-btn green" onclick="setColor(this,'#22c55e')"></div>
-<div class="status-btn yellow" onclick="setColor(this,'#eab308')"></div>
-<div class="status-btn orange" onclick="setColor(this,'#f97316')"></div>
-<div class="status-btn red" onclick="setColor(this,'#ef4444')"></div>
-</div>
-</div>
+<div class="car-body"></div>
 
-<div class="part">
-<div class="part-name">LF Fender - الجناح الامامي الايسر </div>
-<div class="status-buttons">
-<div class="status-btn green" onclick="setColor(this,'#22c55e')"></div>
-<div class="status-btn yellow" onclick="setColor(this,'#eab308')"></div>
-<div class="status-btn orange" onclick="setColor(this,'#f97316')"></div>
-<div class="status-btn red" onclick="setColor(this,'#ef4444')"></div>
-</div>
-</div>
+<button class="part hood" onclick="changeColor(this)"></button>
 
-<div class="part">
-<div class="part-name">RF Fender - الجناح الامامي الايمن </div>
-<div class="status-buttons">
-<div class="status-btn green" onclick="setColor(this,'#22c55e')"></div>
-<div class="status-btn yellow" onclick="setColor(this,'#eab308')"></div>
-<div class="status-btn orange" onclick="setColor(this,'#f97316')"></div>
-<div class="status-btn red" onclick="setColor(this,'#ef4444')"></div>
-</div>
+<button class="part roof" onclick="changeColor(this)"></button>
+
+<button class="part trunk" onclick="changeColor(this)"></button>
+
+<button class="part lf-fender" onclick="changeColor(this)"></button>
+
+<button class="part lf-door" onclick="changeColor(this)"></button>
+
+<button class="part lr-door" onclick="changeColor(this)"></button>
+
+<button class="part lr-fender" onclick="changeColor(this)"></button>
+
+<button class="part rf-fender" onclick="changeColor(this)"></button>
+
+<button class="part rf-door" onclick="changeColor(this)"></button>
+
+<button class="part rr-door" onclick="changeColor(this)"></button>
+
+<button class="part rr-fender" onclick="changeColor(this)"></button>
+
 </div>
 
-<div class="part">
-<div class="part-name">LF Door</div>
-<div class="status-buttons">
-<div class="status-btn green" onclick="setColor(this,'#22c55e')"></div>
-<div class="status-btn yellow" onclick="setColor(this,'#eab308')"></div>
-<div class="status-btn orange" onclick="setColor(this,'#f97316')"></div>
-<div class="status-btn red" onclick="setColor(this,'#ef4444')"></div>
-</div>
+<!-- LEGEND -->
+
+<div class="legend">
+
+<div class="legend-item">
+<div class="legend-color" style="background:#22c55e"></div>
+أصلي
 </div>
 
-<div class="part">
-<div class="part-name">RF Door</div>
-<div class="status-buttons">
-<div class="status-btn green" onclick="setColor(this,'#22c55e')"></div>
-<div class="status-btn yellow" onclick="setColor(this,'#eab308')"></div>
-<div class="status-btn orange" onclick="setColor(this,'#f97316')"></div>
-<div class="status-btn red" onclick="setColor(this,'#ef4444')"></div>
-</div>
+<div class="legend-item">
+<div class="legend-color" style="background:#eab308"></div>
+صبغ وكالة
 </div>
 
-<div class="part">
-<div class="part-name">LR Door</div>
-<div class="status-buttons">
-<div class="status-btn green" onclick="setColor(this,'#22c55e')"></div>
-<div class="status-btn yellow" onclick="setColor(this,'#eab308')"></div>
-<div class="status-btn orange" onclick="setColor(this,'#f97316')"></div>
-<div class="status-btn red" onclick="setColor(this,'#ef4444')"></div>
-</div>
+<div class="legend-item">
+<div class="legend-color" style="background:#f97316"></div>
+مرشوش
 </div>
 
-<div class="part">
-<div class="part-name">RR Door</div>
-<div class="status-buttons">
-<div class="status-btn green" onclick="setColor(this,'#22c55e')"></div>
-<div class="status-btn yellow" onclick="setColor(this,'#eab308')"></div>
-<div class="status-btn orange" onclick="setColor(this,'#f97316')"></div>
-<div class="status-btn red" onclick="setColor(this,'#ef4444')"></div>
-</div>
-</div>
-
-<div class="part">
-<div class="part-name">Trunk</div>
-<div class="status-buttons">
-<div class="status-btn green" onclick="setColor(this,'#22c55e')"></div>
-<div class="status-btn yellow" onclick="setColor(this,'#eab308')"></div>
-<div class="status-btn orange" onclick="setColor(this,'#f97316')"></div>
-<div class="status-btn red" onclick="setColor(this,'#ef4444')"></div>
-</div>
+<div class="legend-item">
+<div class="legend-color" style="background:#ef4444"></div>
+معجون
 </div>
 
 </div>
@@ -349,16 +392,29 @@ SHASSIHA © 2026
 
 <script>
 
-function setColor(element,color){
+function changeColor(element){
 
-    let part = element.closest('.part');
+let current = getComputedStyle(element).backgroundColor;
 
-    part.style.borderRightColor = color;
+if(current == "rgb(34, 197, 94)"){
+element.style.background = "#eab308";
+}
+
+else if(current == "rgb(234, 179, 8)"){
+element.style.background = "#f97316";
+}
+
+else if(current == "rgb(249, 115, 22)"){
+element.style.background = "#ef4444";
+}
+
+else{
+element.style.background = "#22c55e";
+}
 
 }
 
 </script>
 
 </body>
-
 </html>
