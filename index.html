@@ -1,327 +1,364 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Shassiha Paint Report</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>SHASSIHA Inspection</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:#0f172a;
+    font-family:'Cairo',sans-serif;
+    direction:rtl;
+    color:white;
+}
+
+.container{
+    max-width:430px;
+    margin:auto;
+    padding:14px;
+}
+
+/* HEADER */
+
+.header{
+    text-align:center;
+    font-size:26px;
+    font-weight:700;
+    margin-top:15px;
+    margin-bottom:15px;
+}
+
+/* CARD */
+
+.card{
+    background:#1e293b;
+    border-radius:22px;
+    padding:16px;
+    margin-bottom:14px;
+    box-shadow:0 6px 18px rgba(0,0,0,0.25);
+}
+
+.title{
+    font-size:18px;
+    font-weight:700;
+    margin-bottom:15px;
+}
+
+/* INPUTS */
+
+.input{
+    width:100%;
+    background:#111827;
+    border:none;
+    border-radius:14px;
+    padding:14px;
+    color:white;
+    font-size:14px;
+    margin-bottom:10px;
+    outline:none;
+}
+
+.input::placeholder{
+    color:#94a3b8;
+}
+
+/* PARTS */
+
+.parts{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+}
+
+.part{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:#111827;
+    border-radius:14px;
+    padding:12px 14px;
+    border-right:6px solid #22c55e;
+}
+
+.part-name{
+    font-size:14px;
+    font-weight:600;
+}
+
+/* BUTTONS */
+
+.status-buttons{
+    display:flex;
+    gap:6px;
+}
+
+.status-btn{
+    width:24px;
+    height:24px;
+    border-radius:50%;
+    cursor:pointer;
+    border:2px solid white;
+}
+
+.green{
+    background:#22c55e;
+}
+
+.yellow{
+    background:#eab308;
+}
+
+.orange{
+    background:#f97316;
+}
+
+.red{
+    background:#ef4444;
+}
+
+/* NOTES */
+
+.notes{
+    width:100%;
+    height:90px;
+    background:#111827;
+    border:none;
+    border-radius:14px;
+    padding:16px;
+    color:white;
+    resize:none;
+    outline:none;
+    font-family:'Cairo',sans-serif;
+}
+
+/* BUTTON */
+
+.btn{
+    width:100%;
+    padding:15px;
+    border:none;
+    border-radius:16px;
+    background:linear-gradient(135deg,#f97316,#ea580c);
+    color:white;
+    font-size:15px;
+    font-weight:bold;
+    cursor:pointer;
+    margin-top:15px;
+}
+
+/* FOOTER */
+
+.footer{
+    text-align:center;
+    color:#64748b;
+    margin-top:10px;
+    margin-bottom:15px;
+    font-size:12px;
+}
+
+/* PRINT */
+
+@media print{
+
+    body{
+        background:white;
     }
 
-    body {
-      font-family: 'Cairo', sans-serif;
-      background: #f4f6f9;
-      color: #1f2937;
-      padding: 25px;
+    .container{
+        max-width:100%;
+        padding:0;
     }
 
-    .container {
-      max-width: 1100px;
-      margin: auto;
+    .card{
+        box-shadow:none;
+        break-inside:avoid;
+        page-break-inside:avoid;
     }
 
-    .report-card {
-      background: white;
-      border-radius: 24px;
-      padding: 30px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    .btn{
+        display:none;
     }
 
-    .header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 20px;
-      margin-bottom: 30px;
-      border-bottom: 1px solid #e5e7eb;
-      padding-bottom: 20px;
+    .footer{
+        color:#000;
     }
 
-    .logo {
-      font-size: 32px;
-      font-weight: 800;
-      color: #f97316;
+    @page{
+        size:auto;
+        margin:10mm;
     }
 
-    .sub-title {
-      color: #6b7280;
-      font-size: 14px;
-    }
+}
 
-    .car-info {
-      display: flex;
-      gap: 15px;
-      flex-wrap: wrap;
-    }
+</style>
 
-    .info-box {
-      background: #f9fafb;
-      border: 1px solid #e5e7eb;
-      border-radius: 14px;
-      padding: 12px 18px;
-      min-width: 140px;
-    }
-
-    .info-label {
-      color: #6b7280;
-      font-size: 12px;
-    }
-
-    .info-value {
-      font-size: 15px;
-      font-weight: 700;
-      margin-top: 4px;
-    }
-
-    .section-title {
-      font-size: 22px;
-      font-weight: 800;
-      margin-bottom: 25px;
-      color: #111827;
-    }
-
-    .car-wrapper {
-      display: flex;
-      justify-content: center;
-      margin-bottom: 35px;
-    }
-
-    .car-grid {
-      display: grid;
-      grid-template-columns: repeat(5, 130px);
-      gap: 12px;
-      align-items: center;
-      justify-items: center;
-    }
-
-    .part {
-      width: 130px;
-      height: 70px;
-      border-radius: 16px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 700;
-      font-size: 15px;
-      text-align: center;
-      border: 2px solid transparent;
-      transition: 0.3s ease;
-      cursor: pointer;
-      position: relative;
-    }
-
-    .part:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.12);
-    }
-
-    .factory {
-      background: #ecfdf5;
-      color: #065f46;
-      border-color: #10b981;
-    }
-
-    .painted {
-      background: #fffbeb;
-      color: #92400e;
-      border-color: #f59e0b;
-    }
-
-    .replaced {
-      background: #fef2f2;
-      color: #991b1b;
-      border-color: #ef4444;
-    }
-
-    .empty {
-      visibility: hidden;
-    }
-
-    .legend {
-      display: flex;
-      justify-content: center;
-      gap: 18px;
-      flex-wrap: wrap;
-      margin-top: 15px;
-    }
-
-    .legend-item {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      background: #f9fafb;
-      border-radius: 12px;
-      padding: 10px 16px;
-      border: 1px solid #e5e7eb;
-    }
-
-    .legend-color {
-      width: 18px;
-      height: 18px;
-      border-radius: 50%;
-    }
-
-    .notes {
-      margin-top: 35px;
-      background: #f9fafb;
-      border-radius: 18px;
-      padding: 22px;
-      border: 1px solid #e5e7eb;
-    }
-
-    .notes h3 {
-      margin-bottom: 12px;
-      font-size: 18px;
-    }
-
-    .notes p {
-      line-height: 1.9;
-      color: #4b5563;
-    }
-
-    .footer {
-      margin-top: 30px;
-      text-align: center;
-      color: #6b7280;
-      font-size: 13px;
-    }
-
-    @media (max-width: 768px) {
-      body {
-        padding: 12px;
-      }
-
-      .report-card {
-        padding: 18px;
-      }
-
-      .car-grid {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 10px;
-      }
-
-      .part {
-        width: 100%;
-        min-width: 90px;
-        height: 62px;
-        font-size: 13px;
-      }
-
-      .header {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .car-info {
-        width: 100%;
-      }
-
-      .info-box {
-        flex: 1;
-      }
-    }
-  </style>
 </head>
+
 <body>
 
-  <div class="container">
-    <div class="report-card">
+<div class="container">
 
-      <div class="header">
-        <div>
-          <div class="logo">SHASSIHA</div>
-          <div class="sub-title">Professional Vehicle Paint Inspection Report</div>
-        </div>
+<div class="header">
+🚗 SHASSIHA
+</div>
 
-        <div class="car-info">
-          <div class="info-box">
-            <div class="info-label">رقم الشاصي</div>
-            <div class="info-value">WBA43FJ03RCP87478</div>
-          </div>
+<!-- INFO -->
 
-          <div class="info-box">
-            <div class="info-label">الموديل</div>
-            <div class="info-value">BMW X5 2024</div>
-          </div>
+<div class="card">
 
-          <div class="info-box">
-            <div class="info-label">التاريخ</div>
-            <div class="info-value">20/05/2026</div>
-          </div>
-        </div>
-      </div>
+<div class="title">
+معلومات السيارة
+</div>
 
-      <div class="section-title">خريطة الصبغ والفحص</div>
+<input class="input" placeholder="رقم الشاصي VIN">
 
-      <div class="car-wrapper">
-        <div class="car-grid">
+<input class="input" placeholder=" اسم السيارة والموديل">
 
-          <div class="part factory">رفرف أمامي يسار</div>
-          <div class="part factory">الكبوت</div>
-          <div class="part factory">رفرف أمامي يمين</div>
-          <div class="part empty"></div>
-          <div class="part empty"></div>
+<input class="input" placeholder="العداد / الممشى">
 
-          <div class="part painted">باب أمامي يسار</div>
-          <div class="part factory">السقف</div>
-          <div class="part painted">باب أمامي يمين</div>
-          <div class="part empty"></div>
-          <div class="part empty"></div>
+</div>
 
-          <div class="part factory">باب خلفي يسار</div>
-          <div class="part factory">السقف الخلفي</div>
-          <div class="part factory">باب خلفي يمين</div>
-          <div class="part empty"></div>
-          <div class="part empty"></div>
+<!-- PARTS -->
 
-          <div class="part replaced">رفرف خلفي يسار</div>
-          <div class="part factory">الشنطة</div>
-          <div class="part replaced">رفرف خلفي يمين</div>
-          <div class="part empty"></div>
-          <div class="part empty"></div>
+<div class="card">
 
-        </div>
-      </div>
+<div class="title">
+فحص الصبغ
+</div>
 
-      <div class="legend">
-        <div class="legend-item">
-          <div class="legend-color" style="background:#10b981"></div>
-          وكالة
-        </div>
+<div class="parts">
 
-        <div class="legend-item">
-          <div class="legend-color" style="background:#f59e0b"></div>
-          صبغ تجميلي
-        </div>
+<div class="part">
+<div class="part-name">Hood - غطاء المحرك </div>
+<div class="status-buttons">
+<div class="status-btn green" onclick="setColor(this,'#22c55e')"></div>
+<div class="status-btn yellow" onclick="setColor(this,'#eab308')"></div>
+<div class="status-btn orange" onclick="setColor(this,'#f97316')"></div>
+<div class="status-btn red" onclick="setColor(this,'#ef4444')"></div>
+</div>
+</div>
 
-        <div class="legend-item">
-          <div class="legend-color" style="background:#ef4444"></div>
-          تبديل / معجون
-        </div>
-      </div>
+<div class="part">
+<div class="part-name">LF Fender - الجناح الامامي الايسر </div>
+<div class="status-buttons">
+<div class="status-btn green" onclick="setColor(this,'#22c55e')"></div>
+<div class="status-btn yellow" onclick="setColor(this,'#eab308')"></div>
+<div class="status-btn orange" onclick="setColor(this,'#f97316')"></div>
+<div class="status-btn red" onclick="setColor(this,'#ef4444')"></div>
+</div>
+</div>
 
-      <div class="notes">
-        <h3>ملاحظات الفحص</h3>
-        <p>
-          السيارة بحالة جيدة بشكل عام. يوجد صبغ تجميلي في الأبواب الأمامية، مع تبديل أو عمل سمكرة في الرفارف الخلفية.
-          السقف والكبوت والشنطة بحالة وكالة.
-        </p>
-      </div>
+<div class="part">
+<div class="part-name">RF Fender - الجناح الامامي الايمن </div>
+<div class="status-buttons">
+<div class="status-btn green" onclick="setColor(this,'#22c55e')"></div>
+<div class="status-btn yellow" onclick="setColor(this,'#eab308')"></div>
+<div class="status-btn orange" onclick="setColor(this,'#f97316')"></div>
+<div class="status-btn red" onclick="setColor(this,'#ef4444')"></div>
+</div>
+</div>
 
-      <div class="footer">
-        Powered by SHASSIHA Inspection System
-      </div>
+<div class="part">
+<div class="part-name">LF Door</div>
+<div class="status-buttons">
+<div class="status-btn green" onclick="setColor(this,'#22c55e')"></div>
+<div class="status-btn yellow" onclick="setColor(this,'#eab308')"></div>
+<div class="status-btn orange" onclick="setColor(this,'#f97316')"></div>
+<div class="status-btn red" onclick="setColor(this,'#ef4444')"></div>
+</div>
+</div>
 
-    </div>
-  </div>
+<div class="part">
+<div class="part-name">RF Door</div>
+<div class="status-buttons">
+<div class="status-btn green" onclick="setColor(this,'#22c55e')"></div>
+<div class="status-btn yellow" onclick="setColor(this,'#eab308')"></div>
+<div class="status-btn orange" onclick="setColor(this,'#f97316')"></div>
+<div class="status-btn red" onclick="setColor(this,'#ef4444')"></div>
+</div>
+</div>
+
+<div class="part">
+<div class="part-name">LR Door</div>
+<div class="status-buttons">
+<div class="status-btn green" onclick="setColor(this,'#22c55e')"></div>
+<div class="status-btn yellow" onclick="setColor(this,'#eab308')"></div>
+<div class="status-btn orange" onclick="setColor(this,'#f97316')"></div>
+<div class="status-btn red" onclick="setColor(this,'#ef4444')"></div>
+</div>
+</div>
+
+<div class="part">
+<div class="part-name">RR Door</div>
+<div class="status-buttons">
+<div class="status-btn green" onclick="setColor(this,'#22c55e')"></div>
+<div class="status-btn yellow" onclick="setColor(this,'#eab308')"></div>
+<div class="status-btn orange" onclick="setColor(this,'#f97316')"></div>
+<div class="status-btn red" onclick="setColor(this,'#ef4444')"></div>
+</div>
+</div>
+
+<div class="part">
+<div class="part-name">Trunk</div>
+<div class="status-buttons">
+<div class="status-btn green" onclick="setColor(this,'#22c55e')"></div>
+<div class="status-btn yellow" onclick="setColor(this,'#eab308')"></div>
+<div class="status-btn orange" onclick="setColor(this,'#f97316')"></div>
+<div class="status-btn red" onclick="setColor(this,'#ef4444')"></div>
+</div>
+</div>
+
+</div>
+
+</div>
+
+<!-- NOTES -->
+
+<div class="card">
+
+<div class="title">
+ملاحظات
+</div>
+
+<textarea class="notes" placeholder="اكتب الملاحظات هنا..."></textarea>
+
+<button class="btn" onclick="window.print()">
+🖨️ إنشاء التقرير
+</button>
+
+</div>
+
+<div class="footer">
+SHASSIHA © 2026
+</div>
+
+</div>
+
+<script>
+
+function setColor(element,color){
+
+    let part = element.closest('.part');
+
+    part.style.borderRightColor = color;
+
+}
+
+</script>
 
 </body>
+
 </html>
